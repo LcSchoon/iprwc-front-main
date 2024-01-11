@@ -1,0 +1,13 @@
+<div class="background">
+<div class="container">
+  <div class="row">
+    <app-product-thumbnail
+      *ngFor="let productEl of products; let i = index"
+      [product]="productEl"
+      [index]="i">
+
+    </app-product-thumbnail>
+
+  </div>
+</div>
+</div>

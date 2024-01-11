@@ -1,0 +1,17 @@
+<div class="row border-top border-bottom">
+  <div class="row main align-items-center">
+    <div class="col-2"><img class="img-fluid" [src]="product.imagePath"></div>
+    <div class="col info">
+      <div class="row text-muted">{{ product.name }}</div>
+    </div>
+    <div class="col actions">
+      <a style="cursor: pointer" (click)="decreaseAmount()">-</a>
+      <a class="border">{{product.amount}}</a>
+      <a style="cursor: pointer" (click)="increaseAmount()">+</a>
+    </div>
+    <div class="col price">
+      <p>&euro; {{product.price}}</p>
+    </div>
+    <span style="cursor: pointer" (click)="deleteItem()" class="close">&#10005;</span>
+  </div>
+</div>

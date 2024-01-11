@@ -1,0 +1,129 @@
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<div class="wrapper">
+  <div class="container">
+    <h1>
+      <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+      Order summary
+    </h1>
+    <div *ngFor="let product of products; let i = index">
+      <div class="row">
+        <div class="col-md-3">
+          <h4>{{products.slice()[i].name}}</h4>
+        </div>
+        <div class="col-md-2">
+          <h4>{{products.slice()[i].amount}}x</h4>
+        </div>
+        <div class="col-md-3">
+          <h4>€{{products.slice()[i].price}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <dl class="col-md-3">
+        <dt>Total price:</dt>
+        <dd class="text-end">{{ priceInBasket | currency:'&euro;' }}</dd>
+      </dl>
+      <dl class="col-md-3">
+        <dt>TAX 21%:</dt>
+        <dd class="text-end">{{ priceInBasket * 0.21 | currency:'&euro;'}} </dd>
+      </dl>
+      <dl class="col-md-3">
+        <dt>Total:</dt>
+        <dd class="text-end text-dark h5">{{ priceInBasket * 1.21 | currency:'&euro;'}} </dd>
+      </dl>
+    </div>
+    <form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
+      <h1>
+        <i class="fas fa-shipping-fast"></i>
+        Shipping Details
+      </h1>
+      <div class="row">
+        <div class="col-md-5">
+          <label for="firstName">First</label>
+          <input type="text"
+                 id="firstName"
+                 formControlName="firstName"
+                 class="form-control">
+        </div>
+        <div class="col-md-5">
+          <label for="lastName">Last</label>
+          <input type="text"
+                 id="lastName"
+                 formControlName="lastName"
+                 class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10">
+          <label for="street">Street</label>
+           <input type="text"
+                  id="street"
+                  formControlName="street"
+                  class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="city">City</label>
+          <input type="text"
+                 id="city"
+                 formControlName="city"
+                 class="form-control">
+        </div>
+        <div class="col-md-2">
+          <label for="houseNumber">house number</label>
+          <input type="text"
+                 id="houseNumber"
+                 formControlName="houseNumber"
+                 class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label for="zipCode">Zip code</label>
+          <input type="text"
+                 id="zipCode"
+                 formControlName="zipCode"
+                 class="form-control">
+        </div>
+      </div>
+      <h1>
+        <i class="far fa-credit-card"></i> Payment Information
+      </h1>
+      <div class="row">
+        <div class="col-md-10">
+        <label for="creditCardNumber">Credit Card No.</label>
+        <input type="text"
+               id="creditCardNumber"
+               formControlName="creditCardNumber"
+               class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="expirationDate">Exp</label>
+          <input type="text"
+                 id="expirationDate"
+                 formControlName="expirationDate"
+                 class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label for="ccv">CCV</label>
+          <input type="text"
+                 id="ccv"
+                 formControlName="ccv"
+                 class="form-control">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <button class="btn btn-success" (click)="onSubmit()">Purchase</button>
+          |
+          <button class="btn btn-primary" routerLink="/shopping-basket">Back to cart</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

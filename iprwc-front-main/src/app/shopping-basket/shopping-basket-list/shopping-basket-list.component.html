@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-xs-12">
+    <app-shopping-basket-item
+      *ngFor="let productEl of products; let i = index"
+      [product]="productEl"
+      [index]="i"></app-shopping-basket-item>
+  </div>
+</div>

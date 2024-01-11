@@ -1,0 +1,25 @@
+<aside>
+<div class="card">
+  <div class="card-body">
+    <dl class="dlist-align">
+      <dt>Total price:</dt>
+      <dd class="text-end">{{ priceInBasket | currency:'&euro;' }}</dd>
+    </dl>
+    <dl class="dlist-align">
+      <dt>TAX 21%:</dt>
+      <dd class="text-end">{{ priceInBasket * 0.21 | currency:'&euro;'}} </dd>
+    </dl>
+    <hr>
+    <dl class="dlist-align">
+      <dt>Total:</dt>
+      <dd class="text-end text-dark h5">{{ priceInBasket * 1.21 | currency:'&euro;'}} </dd>
+    </dl>
+
+    <div class="d-grid gap-2 my-3">
+      <a routerLink="/check-out" class="btn btn-success w-100"> Make Purchase </a>
+      <a routerLink="/products" class="btn btn-light w-100"> Back to shop </a>
+    </div>
+  </div>
+</div>
+
+</aside>
